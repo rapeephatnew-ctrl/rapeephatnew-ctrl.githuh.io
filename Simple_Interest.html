@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ดอกเบี้ยเชิงเดี่ยว</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Choice_style.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">Math<span>Quest</span></div>
+    <div class="home">
+        <h2>ดอกเบี้ยเชิงเดี่ยว</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Sidebar (เหมือนหน้าเดิม) -->
+    <div class="sidebar">
+
+        <div class="menu-item" onclick="showContent('intro') , window.location.href='introduction.html'">
+            <div class="none">
+                เกริ่นนำ
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('interestMenu')">
+            ดอกเบี้ย <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="interestMenu">
+            <div onclick="showContent('simple') , window.location.href='Simple_Interest'">ดอกเบี้ยเชิงเดี่ยว</div>
+            <div onclick="showContent('compound') , window.location.href='Compound_Interest'">ดอกเบี้ยทบต้น</div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('problemMenu')">
+            โจทย์ปัญหา <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="problemMenu">
+            <div>โจทย์ตัวอย่าง</div>
+            <div>แบบฝึกหัด</div>
+        </div>
+
+
+    </div>
+
+    <!--เนื้อหาดอกเบี้ยเชิงเดี่ยว-->
+    <div class="content_index">
+        <h2>ดอกเบี้ยเชิงเดี่ยว (Simple Interest)</h2>
+
+        <p>
+        ดอกเบี้ยเชิงเดี่ยว คือ การคำนวณดอกเบี้ยจาก "เงินต้นเริ่มต้นเท่านั้น" โดยตลอดระยะเวลาในการฝากเงินหรือกู้ยืม 
+        เงินต้นจะไม่มีการเปลี่ยนแปลง และดอกเบี้ยที่เกิดขึ้นในแต่ละงวดจะมีค่าเท่ากันทุกครั้ง
+        </p>
+
+        <p>
+        กล่าวคือ ดอกเบี้ยจะไม่ถูกนำไปบวกกับเงินต้นเพื่อใช้ในการคำนวณครั้งถัดไป 
+        ทำให้จำนวนเงินที่เพิ่มขึ้นในแต่ละปีมีค่าเพิ่มขึ้นแบบคงที่
+        </p>
+
+        <p><b>สูตรการคำนวณ:</b> I = P × r × t</p>
+
+        <ul>
+        <li>P คือ เงินต้นเริ่มต้น</li>
+        <li>r คือ อัตราดอกเบี้ยต่อปี (เช่น 5% = 0.05)</li>
+        <li>t คือ ระยะเวลา (ต้องแปลงเป็นหน่วยปี)</li>
+        <li>I คือ ดอกเบี้ยที่ได้รับหรือที่ต้องจ่าย</li>
+        </ul>
+
+        <p>
+        เมื่อคำนวณดอกเบี้ยเสร็จแล้ว สามารถหาเงินรวมทั้งหมดได้จาก:
+        </p>
+
+        <p><b>เงินรวม = เงินต้น + ดอกเบี้ย</b></p>
+
+        <p>
+        ดอกเบี้ยเชิงเดี่ยวเหมาะสำหรับการคำนวณในช่วงระยะเวลาสั้น ๆ 
+        หรือในกรณีที่ไม่มีการนำดอกเบี้ยไปลงทุนต่อ
+        </p>
+        <div class="gform_box">
+            <h3>ตัวอย่างที่ 1</h3>
+            <p>
+            ฝากเงิน 5,000 บาท อัตราดอกเบี้ย 4% ต่อปี เป็นเวลา 3 ปี
+            </p>
+            <p>
+            I = 5,000 × 0.04 × 3
+            </p>
+            <p>
+            I = 600 บาท
+            </p>
+            <p>
+            เงินรวม = 5,000 + 600 = 5,600 บาท
+            </p>
+        </div>
+        
+        <div class="gform_box">
+            <h3>ตัวอย่างที่ 2</h3>
+            <p>
+            กู้เงิน 10,000 บาท อัตราดอกเบี้ย 6% ต่อปี เป็นเวลา 2 ปี
+            </p>
+            <p>
+            I = 10,000 × 0.06 × 2
+            </p>
+            <p>
+            I = 1,200 บาท
+            </p>
+            <p>
+            เงินรวม = 10,000 + 1,200 = 11,200 บาท
+            </p>
+        </div>
+        
+    </div>
+
+    <div class="content">
+
+        <div class="content_math">
+            <h2>คำนวณดอกเบี้ยเชิงเดี่ยว</h2>
+
+            <label>เงินต้น (บาท)</label>
+            <input type="number" id="principal" placeholder="เช่น 10000">
+
+            <label>อัตราดอกเบี้ย (% ต่อปี)</label>
+            <input type="number" id="rate" placeholder="เช่น 5">
+
+            <label>ระยะเวลา (ปี)</label>
+            <input type="number" id="time" placeholder="เช่น 2">
+
+            <button onclick="calculateInterest()">คำนวณ</button>
+
+            <div class="result_box">
+                <h2>ผลลัพธ์</h2>
+                <div id="result">กรอกข้อมูลแล้วกดคำนวณ</div>
+            </div>
+        
+        </div>
+
+        <button class="back_index" onclick="goIndex()">
+            กลับหน้าแรก
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+<script>
+
+function toggleMenu(id) {
+    const menu = document.getElementById(id);
+    menu.classList.toggle("show");
+}
+
+function showContent(type) {
+    const title = document.getElementById("title");
+    const text = document.getElementById("text");
+
+}
+
+//เนื้อหาดอกเบี้ยเชิงเดี่ยว
+function calculateInterest() {
+  let P = Number(document.getElementById("principal").value);
+  let rPercent = Number(document.getElementById("rate").value);
+  let r = rPercent / 100;
+  let t = Number(document.getElementById("time").value);
+
+  let interest = P * r * t;
+  let total = P + interest;
+
+  document.getElementById("result").innerHTML = `
+    <p><strong>สูตรดอกเบี้ยเชิงเดี่ยว</strong></p>
+    <p>I = P × r × t</p>
+
+    <p><strong>แทนค่า</strong></p>
+    <p>
+      I = ${P} × ${rPercent / 100} × ${t}
+    </p>
+
+    <p><strong>คำนวณ</strong></p>
+    <p>
+      I = ${interest.toFixed(2)} บาท
+    </p>
+
+    <hr>
+
+    <p><strong>สรุปคำตอบ</strong></p>
+    <p>ดอกเบี้ย = ${interest.toFixed(2)} บาท</p>
+    <p>เงินรวม = ${total.toFixed(2)} บาท</p>
+  `;
+}
+
+function goIndex() {
+  window.location.href = "index.html";
+  document.querySelector(".back_index").style.display = "block";
+}
+
+</script>
+
+</html>

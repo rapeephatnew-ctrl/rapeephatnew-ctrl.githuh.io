@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ดอกเบี้ยเชิงเดี่ยว</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Choice_style.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">Math<span>Quest</span></div>
+    <div class="home">
+        <h2>ตะลุยโจทย์</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Sidebar (เหมือนหน้าเดิม) -->
+    <div class="sidebar">
+
+        <div class="menu-item" onclick="showContent('intro') , window.location.href='introduction.html'">
+            <div class="none">
+                เกริ่นนำ
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('interestMenu')">
+            ดอกเบี้ย <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="interestMenu">
+            <div onclick="showContent('simple') , window.location.href='Simple_Interest'">ดอกเบี้ยเชิงเดี่ยว</div>
+            <div onclick="showContent('compound') , window.location.href='Compound_Interest'">ดอกเบี้ยทบต้น</div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('problemMenu')">
+            โจทย์ปัญหา <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="problemMenu">
+            <div>โจทย์ตัวอย่าง</div>
+            <div>แบบฝึกหัด</div>
+        </div>
+
+
+    </div>
+
+    <div class="content_index">
+        <!-- ข้อที่ 1 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 1</h2>
+            <p>สูตรดอกเบี้ยเชิงเดี่ยวคือข้อใด</p>
+
+            <label><input type="radio" name="q1" value="A"> A) I = P + r × t</label><br>
+            <label><input type="radio" name="q1" value="B"> B) I = P × r × t</label><br>
+            <label><input type="radio" name="q1" value="C"> C) I = P × (1 + r)ᵗ</label><br>
+            <label><input type="radio" name="q1" value="D"> D) I = P ÷ r × t</label>
+        </div>
+
+        <!-- ข้อที่ 2 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 2</h2>
+            <p>เงินต้น (P) หมายถึงอะไร</p>
+
+            <label><input type="radio" name="q2" value="A"> A) ดอกเบี้ย</label><br>
+            <label><input type="radio" name="q2" value="B"> B) เงินรวม</label><br>
+            <label><input type="radio" name="q2" value="C"> C) เงินเริ่มต้น</label><br>
+            <label><input type="radio" name="q2" value="D"> D) ระยะเวลา</label>
+        </div>
+
+        <!-- ข้อที่ 3 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 3</h2>
+            <p>ตัวแปร r ในสูตรหมายถึงอะไร</p>
+
+            <label><input type="radio" name="q3" value="A"> A) เงินต้น</label><br>
+            <label><input type="radio" name="q3" value="B"> B) ระยะเวลา</label><br>
+            <label><input type="radio" name="q3" value="C"> C) อัตราดอกเบี้ย</label><br>
+            <label><input type="radio" name="q3" value="D"> D) เงินรวม</label>
+        </div>
+
+        <!-- ข้อ 4 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 4</h2>
+            <p>เงินต้น 10,000 บาท ดอกเบี้ย 5% ต่อปี 1 ปี ได้ดอกเบี้ยเท่าไร</p>
+            <label><input type="radio" name="q4" value="A"> A) 50 บาท</label><br>
+            <label><input type="radio" name="q4" value="B"> B) 500 บาท</label><br>
+            <label><input type="radio" name="q4" value="C"> C) 1,000 บาท</label><br>
+            <label><input type="radio" name="q4" value="D"> D) 1,500 บาท</label>
+        </div>
+
+        <!-- ข้อ 5 : ดอกเบี้ยทบต้น -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 5</h2>
+            <p>สูตรดอกเบี้ยทบต้นคือข้อใด</p>
+            <label><input type="radio" name="q5" value="A"> A) A = P + r × t</label><br>
+            <label><input type="radio" name="q5" value="B"> B) A = P(1 + r)ᵗ</label><br>
+            <label><input type="radio" name="q5" value="C"> C) I = P × r × t</label><br>
+            <label><input type="radio" name="q5" value="D"> D) A = P ÷ r</label>
+        </div>
+
+        <!-- ข้อ 6 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 6</h2>
+            <p>ดอกเบี้ยทบต้นแตกต่างจากดอกเบี้ยเชิงเดี่ยวอย่างไร</p>
+            <label><input type="radio" name="q6" value="A"> A) คิดจากเงินต้นเท่านั้น</label><br>
+            <label><input type="radio" name="q6" value="B"> B) คิดจากเงินต้นและดอกเบี้ยเดิม</label><br>
+            <label><input type="radio" name="q6" value="C"> C) ไม่คิดดอกเบี้ย</label><br>
+            <label><input type="radio" name="q6" value="D"> D) ใช้ได้แค่ 1 ปี</label>
+        </div>
+
+        <!-- ข้อ 7 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 7</h2>
+            <p>ฝากเงินแบบดอกเบี้ยทบต้นเป็นเวลานาน เงินจะเป็นอย่างไร</p>
+            <label><input type="radio" name="q7" value="A"> A) ลดลง</label><br>
+            <label><input type="radio" name="q7" value="B"> B) คงที่</label><br>
+            <label><input type="radio" name="q7" value="C"> C) เพิ่มขึ้นเร็วขึ้น</label><br>
+            <label><input type="radio" name="q7" value="D"> D) หายไป</label>
+        </div>
+
+        <!-- ข้อ 8 : ภาษี -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 8</h2>
+            <p>ภาษีคืออะไร</p>
+            <label><input type="radio" name="q8" value="A"> A) เงินออม</label><br>
+            <label><input type="radio" name="q8" value="B"> B) เงินที่จ่ายให้รัฐ</label><br>
+            <label><input type="radio" name="q8" value="C"> C) ดอกเบี้ย</label><br>
+            <label><input type="radio" name="q8" value="D"> D) เงินกู้</label>
+        </div>
+
+        <!-- ข้อ 9 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 9</h2>
+            <p>ภาษีมูลค่าเพิ่ม (VAT) ในประเทศไทยคิดกี่เปอร์เซ็นต์</p>
+            <label><input type="radio" name="q9" value="A"> A) 5%</label><br>
+            <label><input type="radio" name="q9" value="B"> B) 7%</label><br>
+            <label><input type="radio" name="q9" value="C"> C) 10%</label><br>
+            <label><input type="radio" name="q9" value="D"> D) 15%</label>
+        </div>
+
+        <!-- ข้อ 10 -->
+        <div class="gform_box">
+            <h2>คำถามข้อที่ 10</h2>
+            <p>สินค้าราคา 1,000 บาท ยังไม่รวม VAT 7% ต้องจ่ายเท่าไร</p>
+            <label><input type="radio" name="q10" value="A"> A) 1,000 บาท</label><br>
+            <label><input type="radio" name="q10" value="B"> B) 1,050 บาท</label><br>
+            <label><input type="radio" name="q10" value="C"> C) 1,070 บาท</label><br>
+            <label><input type="radio" name="q10" value="D"> D) 1,100 บาท</label>
+        </div>
+
+        <!-- ปุ่มส่งทั้งหมด -->
+        <button onclick="submitAll()" class="submit_all">
+            ส่งคำตอบทั้งหมด
+        </button>
+
+        <!-- แสดงผลรวม -->
+        <div id="score_result"></div>
+
+        <button class="back_index" onclick="goIndex()">
+            กลับหน้าแรก
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+<script>
+
+    function toggleMenu(id) {
+        const menu = document.getElementById(id);
+        menu.classList.toggle("show");
+    }
+
+    function showContent(type) {
+        const title = document.getElementById("title");
+        const text = document.getElementById("text");
+
+    }
+
+
+
+    function submitAll() {
+
+        const answers = {
+        q1: "B",
+        q2: "C",
+        q3: "C",
+        q4: "B",
+        q5: "B",
+        q6: "B",
+        q7: "C",
+        q8: "B",
+        q9: "B",
+        q10: "C"
+        };
+
+    let score = 0;
+    let total = Object.keys(answers).length;
+
+    for (let q in answers) {
+        const selected = document.querySelector(
+        `input[name="${q}"]:checked`
+        );
+
+        if (!selected) {
+        alert("⚠️ กรุณาตอบให้ครบทุกข้อ");
+        return;
+        }
+
+        if (selected.value === answers[q]) {
+        score++;
+        }
+    }
+
+    // 🔒 ล็อกทุก radio
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+        r.disabled = true;
+    });
+
+    // 🔒 ปิดปุ่มส่ง
+    const btn = document.querySelector(".submit_all");
+    btn.disabled = true;
+    btn.innerText = "ส่งคำตอบแล้ว";
+    btn.style.background = "#9ca3af";
+    btn.style.cursor = "not-allowed";
+
+    // แสดงคะแนน
+    document.getElementById("score_result").innerHTML = `
+        <h2>สรุปผลคะแนน</h2>
+        <p>คุณได้ <strong>${score}</strong> คะแนน จาก ${total} คะแนน</p>
+    `;
+    }
+
+    function goIndex() {
+    window.location.href = "index.html";
+    document.querySelector(".back_index").style.display = "block";
+    }
+
+
+</script>
+
+</html>

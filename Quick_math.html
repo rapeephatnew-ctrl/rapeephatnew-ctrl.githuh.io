@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ดอกเบี้ยเชิงเดี่ยว</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Choice_style.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">
+        Math<span>Quest</span>
+    </div>
+
+    <div class="home">
+        <h2>คณิตคิดเร็ว</h2>
+        
+    </div>
+
+    <div class="timer_box">
+        ⏰ เวลาที่เหลือ: <span id="time">05:00</span>
+        </div>
+</div>
+
+
+        
+<div class="container">
+
+    <!-- Sidebar (เหมือนหน้าเดิม) -->
+    <div class="sidebar">
+
+        <div class="menu-item" onclick="showContent('intro') , window.location.href='introduction.html'">
+            <div class="none">
+                เกริ่นนำ
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('interestMenu')">
+            ดอกเบี้ย <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="interestMenu">
+            <div onclick="showContent('simple') , window.location.href='Simple_Interest'">ดอกเบี้ยเชิงเดี่ยว</div>
+            <div onclick="showContent('compound') , window.location.href='Compound_Interest'">ดอกเบี้ยทบต้น</div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('problemMenu')">
+            โจทย์ปัญหา <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="problemMenu">
+            <div>โจทย์ตัวอย่าง</div>
+            <div>แบบฝึกหัด</div>
+        </div>
+
+
+    </div>
+
+    <div class="content_index" id="DOMContentLoaded">
+        <div class="level_box">
+            <h3>เลือกระดับความยาก</h3>
+
+            <select id="level" onchange="setLevel()">
+            <option value="#">---</option>
+            <option value="easy">ง่าย</option>
+            <option value="medium">ปานกลาง</option>
+            <option value="hard">ยาก</option>
+            </select>
+        </div>
+
+        <!--ง่าย-->
+        <div class="gform_box" id="easy">
+            <!-- ข้อที่ 1 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 1</h2>
+                <p>สูตรดอกเบี้ยเชิงเดี่ยวคือข้อใด</p>
+
+                <label><input type="radio" name="qE1" value="A"> A) I = P + r × t</label><br>
+                <label><input type="radio" name="qE1" value="B"> B) I = P × r × t</label><br>
+                <label><input type="radio" name="qE1" value="C"> C) I = P × (1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qE1" value="D"> D) I = P ÷ r × t</label>
+            </div>
+
+            <!-- ข้อที่ 2 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 2</h2>
+                <p>เงินต้น (P) หมายถึงอะไร</p>
+
+                <label><input type="radio" name="qE2" value="A"> A) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qE2" value="B"> B) เงินรวม</label><br>
+                <label><input type="radio" name="qE2" value="C"> C) เงินเริ่มต้น</label><br>
+                <label><input type="radio" name="qE2" value="D"> D) ระยะเวลา</label>
+            </div>
+
+            <!-- ข้อที่ 3 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 3</h2>
+                <p>ตัวแปร r ในสูตรหมายถึงอะไร</p>
+
+                <label><input type="radio" name="qE3" value="A"> A) เงินต้น</label><br>
+                <label><input type="radio" name="qE3" value="B"> B) ระยะเวลา</label><br>
+                <label><input type="radio" name="qE3" value="C"> C) อัตราดอกเบี้ย</label><br>
+                <label><input type="radio" name="qE3" value="D"> D) เงินรวม</label>
+            </div>
+
+            <!-- ข้อ 4 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 4</h2>
+                <p>เงินต้น 10,000 บาท ดอกเบี้ย 5% ต่อปี 1 ปี ได้ดอกเบี้ยเท่าไร</p>
+                <label><input type="radio" name="qE4" value="A"> A) 50 บาท</label><br>
+                <label><input type="radio" name="qE4" value="B"> B) 500 บาท</label><br>
+                <label><input type="radio" name="qE4" value="C"> C) 1,000 บาท</label><br>
+                <label><input type="radio" name="qE4" value="D"> D) 1,500 บาท</label>
+            </div>
+
+            <!-- ข้อ 5 : ดอกเบี้ยทบต้น -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 5</h2>
+                <p>สูตรดอกเบี้ยทบต้นคือข้อใด</p>
+                <label><input type="radio" name="qE5" value="A"> A) A = P + r × t</label><br>
+                <label><input type="radio" name="qE5" value="B"> B) A = P(1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qE5" value="C"> C) I = P × r × t</label><br>
+                <label><input type="radio" name="qE5" value="D"> D) A = P ÷ r</label>
+            </div>
+
+            <!-- ข้อ 6 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 6</h2>
+                <p>ดอกเบี้ยทบต้นแตกต่างจากดอกเบี้ยเชิงเดี่ยวอย่างไร</p>
+                <label><input type="radio" name="qE6" value="A"> A) คิดจากเงินต้นเท่านั้น</label><br>
+                <label><input type="radio" name="qE6" value="B"> B) คิดจากเงินต้นและดอกเบี้ยเดิม</label><br>
+                <label><input type="radio" name="qE6" value="C"> C) ไม่คิดดอกเบี้ย</label><br>
+                <label><input type="radio" name="qE6" value="D"> D) ใช้ได้แค่ 1 ปี</label>
+            </div>
+
+            <!-- ข้อ 7 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 7</h2>
+                <p>ฝากเงินแบบดอกเบี้ยทบต้นเป็นเวลานาน เงินจะเป็นอย่างไร</p>
+                <label><input type="radio" name="qE7" value="A"> A) ลดลง</label><br>
+                <label><input type="radio" name="qE7" value="B"> B) คงที่</label><br>
+                <label><input type="radio" name="qE7" value="C"> C) เพิ่มขึ้นเร็วขึ้น</label><br>
+                <label><input type="radio" name="qE7" value="D"> D) หายไป</label>
+            </div>
+
+            <!-- ข้อ 8 : ภาษี -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 8</h2>
+                <p>ภาษีคืออะไร</p>
+                <label><input type="radio" name="qE8" value="A"> A) เงินออม</label><br>
+                <label><input type="radio" name="qE8" value="B"> B) เงินที่จ่ายให้รัฐ</label><br>
+                <label><input type="radio" name="qE8" value="C"> C) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qE8" value="D"> D) เงินกู้</label>
+            </div>
+
+            <!-- ข้อ 9 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 9</h2>
+                <p>ภาษีมูลค่าเพิ่ม (VAT) ในประเทศไทยคิดกี่เปอร์เซ็นต์</p>
+                <label><input type="radio" name="qE9" value="A"> A) 5%</label><br>
+                <label><input type="radio" name="qE9" value="B"> B) 7%</label><br>
+                <label><input type="radio" name="qE9" value="C"> C) 10%</label><br>
+                <label><input type="radio" name="qE9" value="D"> D) 15%</label>
+            </div>
+
+            <!-- ข้อ 10 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 10</h2>
+                <p>สินค้าราคา 1,000 บาท ยังไม่รวม VAT 7% ต้องจ่ายเท่าไร</p>
+                <label><input type="radio" name="qE10" value="A"> A) 1,000 บาท</label><br>
+                <label><input type="radio" name="qE10" value="B"> B) 1,050 บาท</label><br>
+                <label><input type="radio" name="qE10" value="C"> C) 1,070 บาท</label><br>
+                <label><input type="radio" name="qE10" value="D"> D) 1,100 บาท</label>
+            </div>
+
+            <!-- ปุ่มส่งทั้งหมด -->
+            <button onclick="submitAll()" class="submit_all">
+                ส่งคำตอบทั้งหมด
+            </button>
+        </div>
+        
+        <!--ปานกลาง-->
+        <div class="gform_box" id="medium">
+            <!-- ================= MEDIUM ================= -->
+            <!-- ข้อที่ 1 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 1</h2>
+                <p>สูตรดอกเบี้ยเชิงเดี่ยวคือข้อใด</p>
+
+                <label><input type="radio" name="qM1" value="A"> A) I = P + r × t</label><br>
+                <label><input type="radio" name="qM1" value="B"> B) I = P × r × t</label><br>
+                <label><input type="radio" name="qM1" value="C"> C) I = P × (1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qM1" value="D"> D) I = P ÷ r × t</label>
+            </div>
+
+            <!-- ข้อที่ 2 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 2</h2>
+                <p>เงินต้น (P) หมายถึงอะไร</p>
+
+                <label><input type="radio" name="qM
+                    2" value="A"> A) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qM2" value="B"> B) เงินรวม</label><br>
+                <label><input type="radio" name="qM2" value="C"> C) เงินเริ่มต้น</label><br>
+                <label><input type="radio" name="qM2" value="D"> D) ระยะเวลา</label>
+            </div>
+
+            <!-- ข้อที่ 3 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 3</h2>
+                <p>ตัวแปร r ในสูตรหมายถึงอะไร</p>
+
+                <label><input type="radio" name="qM3" value="A"> A) เงินต้น</label><br>
+                <label><input type="radio" name="qM3" value="B"> B) ระยะเวลา</label><br>
+                <label><input type="radio" name="qM3" value="C"> C) อัตราดอกเบี้ย</label><br>
+                <label><input type="radio" name="qM3" value="D"> D) เงินรวม</label>
+            </div>
+
+            <!-- ข้อ 4 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 4</h2>
+                <p>เงินต้น 10,000 บาท ดอกเบี้ย 5% ต่อปี 1 ปี ได้ดอกเบี้ยเท่าไร</p>
+                <label><input type="radio" name="qM4" value="A"> A) 50 บาท</label><br>
+                <label><input type="radio" name="qM4" value="B"> B) 500 บาท</label><br>
+                <label><input type="radio" name="qM4" value="C"> C) 1,000 บาท</label><br>
+                <label><input type="radio" name="qM4" value="D"> D) 1,500 บาท</label>
+            </div>
+
+            <!-- ข้อ 5 : ดอกเบี้ยทบต้น -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 5</h2>
+                <p>สูตรดอกเบี้ยทบต้นคือข้อใด</p>
+                <label><input type="radio" name="qM5" value="A"> A) A = P + r × t</label><br>
+                <label><input type="radio" name="qM5" value="B"> B) A = P(1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qM5" value="C"> C) I = P × r × t</label><br>
+                <label><input type="radio" name="qM5" value="D"> D) A = P ÷ r</label>
+            </div>
+
+            <!-- ข้อ 6 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 6</h2>
+                <p>ดอกเบี้ยทบต้นแตกต่างจากดอกเบี้ยเชิงเดี่ยวอย่างไร</p>
+                <label><input type="radio" name="qM6" value="A"> A) คิดจากเงินต้นเท่านั้น</label><br>
+                <label><input type="radio" name="qM6" value="B"> B) คิดจากเงินต้นและดอกเบี้ยเดิม</label><br>
+                <label><input type="radio" name="qM6" value="C"> C) ไม่คิดดอกเบี้ย</label><br>
+                <label><input type="radio" name="qM6" value="D"> D) ใช้ได้แค่ 1 ปี</label>
+            </div>
+
+            <!-- ข้อ 7 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 7</h2>
+                <p>ฝากเงินแบบดอกเบี้ยทบต้นเป็นเวลานาน เงินจะเป็นอย่างไร</p>
+                <label><input type="radio" name="qM7" value="A"> A) ลดลง</label><br>
+                <label><input type="radio" name="qM7" value="B"> B) คงที่</label><br>
+                <label><input type="radio" name="qM7" value="C"> C) เพิ่มขึ้นเร็วขึ้น</label><br>
+                <label><input type="radio" name="qM7" value="D"> D) หายไป</label>
+            </div>
+
+            <!-- ข้อ 8 : ภาษี -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 8</h2>
+                <p>ภาษีคืออะไร</p>
+                <label><input type="radio" name="qM8" value="A"> A) เงินออม</label><br>
+                <label><input type="radio" name="qM8" value="B"> B) เงินที่จ่ายให้รัฐ</label><br>
+                <label><input type="radio" name="qM8" value="C"> C) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qM8" value="D"> D) เงินกู้</label>
+            </div>
+
+            <!-- ข้อ 9 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 9</h2>
+                <p>ภาษีมูลค่าเพิ่ม (VAT) ในประเทศไทยคิดกี่เปอร์เซ็นต์</p>
+                <label><input type="radio" name="qM9" value="A"> A) 5%</label><br>
+                <label><input type="radio" name="qM9" value="B"> B) 7%</label><br>
+                <label><input type="radio" name="qM9" value="C"> C) 10%</label><br>
+                <label><input type="radio" name="qM9" value="D"> D) 15%</label>
+            </div>
+
+            <!-- ข้อ 10 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 10</h2>
+                <p>สินค้าราคา 1,000 บาท ยังไม่รวม VAT 7% ต้องจ่ายเท่าไร</p>
+                <label><input type="radio" name="qM10" value="A"> A) 1,000 บาท</label><br>
+                <label><input type="radio" name="qM10" value="B"> B) 1,050 บาท</label><br>
+                <label><input type="radio" name="qM10" value="C"> C) 1,070 บาท</label><br>
+                <label><input type="radio" name="qM10" value="D"> D) 1,100 บาท</label>
+            </div>
+
+            <!-- ปุ่มส่งทั้งหมด -->
+            <button onclick="submitAll()" class="submit_all">
+                ส่งคำตอบทั้งหมด
+            </button>
+
+        </div>
+
+        <!--ยาก-->
+        <div class="gform_box" id="hard">
+            <!-- ================= HARD ================= -->
+
+                <!-- ข้อที่ 1 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 1</h2>
+                <p>สูตรดอกเบี้ยเชิงเดี่ยวคือข้อใด</p>
+
+                <label><input type="radio" name="qH1" value="A"> A) I = P + r × t</label><br>
+                <label><input type="radio" name="qH1" value="B"> B) I = P × r × t</label><br>
+                <label><input type="radio" name="qH1" value="C"> C) I = P × (1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qH1" value="D"> D) I = P ÷ r × t</label>
+            </div>
+
+            <!-- ข้อที่ 2 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 2</h2>
+                <p>เงินต้น (P) หมายถึงอะไร</p>
+
+                <label><input type="radio" name="qH2" value="A"> A) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qH2" value="B"> B) เงินรวม</label><br>
+                <label><input type="radio" name="qH2" value="C"> C) เงินเริ่มต้น</label><br>
+                <label><input type="radio" name="qH2" value="D"> D) ระยะเวลา</label>
+            </div>
+
+            <!-- ข้อที่ 3 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 3</h2>
+                <p>ตัวแปร r ในสูตรหมายถึงอะไร</p>
+
+                <label><input type="radio" name="qH3" value="A"> A) เงินต้น</label><br>
+                <label><input type="radio" name="qH3" value="B"> B) ระยะเวลา</label><br>
+                <label><input type="radio" name="qH3" value="C"> C) อัตราดอกเบี้ย</label><br>
+                <label><input type="radio" name="qH3" value="D"> D) เงินรวม</label>
+            </div>
+
+            <!-- ข้อ 4 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 4</h2>
+                <p>เงินต้น 10,000 บาท ดอกเบี้ย 5% ต่อปี 1 ปี ได้ดอกเบี้ยเท่าไร</p>
+                <label><input type="radio" name="qH4" value="A"> A) 50 บาท</label><br>
+                <label><input type="radio" name="qH4" value="B"> B) 500 บาท</label><br>
+                <label><input type="radio" name="qH4" value="C"> C) 1,000 บาท</label><br>
+                <label><input type="radio" name="qH4" value="D"> D) 1,500 บาท</label>
+            </div>
+
+            <!-- ข้อ 5 : ดอกเบี้ยทบต้น -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 5</h2>
+                <p>สูตรดอกเบี้ยทบต้นคือข้อใด</p>
+                <label><input type="radio" name="qH5" value="A"> A) A = P + r × t</label><br>
+                <label><input type="radio" name="qH5" value="B"> B) A = P(1 + r)ᵗ</label><br>
+                <label><input type="radio" name="qH5" value="C"> C) I = P × r × t</label><br>
+                <label><input type="radio" name="qH5" value="D"> D) A = P ÷ r</label>
+            </div>
+
+            <!-- ข้อ 6 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 6</h2>
+                <p>ดอกเบี้ยทบต้นแตกต่างจากดอกเบี้ยเชิงเดี่ยวอย่างไร</p>
+                <label><input type="radio" name="qH6" value="A"> A) คิดจากเงินต้นเท่านั้น</label><br>
+                <label><input type="radio" name="qH6" value="B"> B) คิดจากเงินต้นและดอกเบี้ยเดิม</label><br>
+                <label><input type="radio" name="qH6" value="C"> C) ไม่คิดดอกเบี้ย</label><br>
+                <label><input type="radio" name="qH6" value="D"> D) ใช้ได้แค่ 1 ปี</label>
+            </div>
+
+            <!-- ข้อ 7 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 7</h2>
+                <p>ฝากเงินแบบดอกเบี้ยทบต้นเป็นเวลานาน เงินจะเป็นอย่างไร</p>
+                <label><input type="radio" name="qH7" value="A"> A) ลดลง</label><br>
+                <label><input type="radio" name="qH7" value="B"> B) คงที่</label><br>
+                <label><input type="radio" name="qH7" value="C"> C) เพิ่มขึ้นเร็วขึ้น</label><br>
+                <label><input type="radio" name="qH7" value="D"> D) หายไป</label>
+            </div>
+
+            <!-- ข้อ 8 : ภาษี -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 8</h2>
+                <p>ภาษีคืออะไร</p>
+                <label><input type="radio" name="qH8" value="A"> A) เงินออม</label><br>
+                <label><input type="radio" name="qH8" value="B"> B) เงินที่จ่ายให้รัฐ</label><br>
+                <label><input type="radio" name="qH8" value="C"> C) ดอกเบี้ย</label><br>
+                <label><input type="radio" name="qH8" value="D"> D) เงินกู้</label>
+            </div>
+
+            <!-- ข้อ 9 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 9</h2>
+                <p>ภาษีมูลค่าเพิ่ม (VAT) ในประเทศไทยคิดกี่เปอร์เซ็นต์</p>
+                <label><input type="radio" name="qH9" value="A"> A) 5%</label><br>
+                <label><input type="radio" name="qH9" value="B"> B) 7%</label><br>
+                <label><input type="radio" name="qH9" value="C"> C) 10%</label><br>
+                <label><input type="radio" name="qH9" value="D"> D) 15%</label>
+            </div>
+
+            <!-- ข้อ 10 -->
+            <div class="gform_box">
+                <h2>คำถามข้อที่ 10</h2>
+                <p>สินค้าราคา 1,000 บาท ยังไม่รวม VAT 7% ต้องจ่ายเท่าไร</p>
+                <label><input type="radio" name="qH10" value="A"> A) 1,000 บาท</label><br>
+                <label><input type="radio" name="qH10" value="B"> B) 1,050 บาท</label><br>
+                <label><input type="radio" name="qH10" value="C"> C) 1,070 บาท</label><br>
+                <label><input type="radio" name="qH10" value="D"> D) 1,100 บาท</label>
+            </div>
+
+            <!-- ปุ่มส่งทั้งหมด -->
+            <button onclick="submitAll()" class="submit_all">
+                ส่งคำตอบทั้งหมด
+            </button>
+
+        </div>
+
+        <!-- กล่องแสดงผลคะแนน -->
+        <div id="resultModal" class="modal">
+            <div class="modal_content">
+                <h2>📊 สรุปผลคะแนน</h2>
+                <p id="modal_score"></p>
+                <button class="back_index" onclick="goIndex()">
+                    กลับหน้าแรก
+                </button>
+            </div>
+        </div>
+
+        <button class="back_index" onclick="goIndex()">
+            กลับหน้าแรก
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+<script>
+
+
+    function toggleMenu(id) {
+        const menu = document.getElementById(id);
+        menu.classList.toggle("show");
+    }
+
+    function showContent(type) {
+        const title = document.getElementById("title");
+        const text = document.getElementById("text");
+
+    }
+
+    let timeLeft = 300;
+    let timerInterval;
+
+    function startTimer() {
+
+    timerInterval = setInterval(function () {
+
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        let timeDisplay = document.getElementById("time");
+
+        if (timeDisplay) {
+            timeDisplay.innerText =
+                minutes.toString().padStart(2, "0") + ":" +
+                seconds.toString().padStart(2, "0");
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("⏰ หมดเวลา! ระบบจะส่งคำตอบอัตโนมัติ");
+            submitAll();
+        }
+
+        timeLeft--;
+
+    }, 1000);
+}
+
+    //ระดับความยากง่่าย
+    let easyQuestions = [qE1,qE2,qE3,qE4,qE5,qE6,qE7,qE8,qE9,qE10];
+    let mediumQuestions = [qM1,qM2,qM3,qM4,qM5,qM6,qM7,qM8,qM9,qM10];
+    let hardQuestions = [qH1,qH2,qH3,qH4,qH5,qH6,qH7,qH8,qH9,qH10];
+
+    function submitAll(){
+
+        let level = document.getElementById("level").value;
+        let answers = {};
+        let prefix = "";
+
+        if(level === "easy"){
+            prefix = "qE";
+            answers = {
+                qE1:"B",
+                qE2:"A",
+                qE3:"C",
+                qE4:"B",
+                qE5:"B",
+                qE6:"B",
+                qE7:"C",
+                qE8:"B",
+                qE9:"B",
+                qE10:"C"
+            };
+        }
+
+        if(level === "medium"){
+            prefix = "qM";
+            answers = {
+                qM1:"B",
+                qM2:"A",
+                qM3:"C",
+                qM4:"B",
+                qM5:"B",
+                qM6:"B",
+                qM7:"C",
+                qM8:"B",
+                qM9:"B",
+                qM10:"C"
+            };
+        }
+
+        if(level === "hard"){
+            prefix = "qH";
+            answers = {
+                qH1:"B",
+                qH2:"A",
+                qH3:"C",
+                qH4:"B",
+                qH5:"B",
+                qH6:"B",
+                qH7:"C",
+                qH8:"B",
+                qH9:"B",
+                qH10:"C"
+            };
+        }
+
+    let score = 0;
+    let total = Object.keys(answers).length;
+
+    for(let key in answers){
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+
+        if(!selected){
+            alert("กรุณาตอบให้ครบทุกข้อ");
+            return;
+        }
+
+        if(selected.value === answers[key]){
+            score++;
+        }
+    }
+
+
+
+    // 🔒 ล็อกทุก radio
+    document.querySelectorAll('input[type="radio"]').forEach(r => {
+        r.disabled = true;
+    });
+
+    // 🔒 ปิดปุ่มส่ง
+    const btn = document.querySelector(".submit_all");
+    btn.disabled = true;
+    btn.innerText = "ส่งคำตอบแล้ว";
+    btn.style.background = "#9ca3af";
+    btn.style.cursor = "not-allowed";
+
+    // แสดงคะแนน
+    document.getElementById("modal_score").innerHTML =
+    "คุณได้ <strong>"+score+"</strong> คะแนน จาก "+total+" คะแนน";
+
+    document.getElementById("resultModal").style.display="flex";
+    }
+
+    function goIndex() {
+        window.location.href = "index.html";
+        document.querySelector(".back_index").style.display = "block";
+    }
+
+    function setLevel(){
+
+        let level = document.getElementById("level").value;
+
+        let easy = document.getElementById("easy");
+        let medium = document.getElementById("medium");
+        let hard = document.getElementById("hard");
+
+
+        // ซ่อนทั้งหมดก่อน
+        easy.style.display = "none";
+        medium.style.display = "none";
+        hard.style.display = "none";
+
+        // แสดงเฉพาะระดับที่เลือก
+        if(level === "easy"){
+            easy.style.display = "block";
+            clearInterval(timerInterval);
+            startTimer();
+        }
+
+        else if(level === "medium"){
+            medium.style.display = "block";
+            clearInterval(timerInterval);
+            startTimer();
+        }
+
+        else if(level === "hard"){
+            hard.style.display = "block";
+            clearInterval(timerInterval);
+            startTimer();
+        }
+    }
+
+
+</script>
+
+</html>

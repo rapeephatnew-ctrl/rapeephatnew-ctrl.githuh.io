@@ -1,0 +1,124 @@
+.home{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: auto; /* 🔥 ดันไปขวาสุด */
+}
+
+.gform_box {
+  max-width: 85%;
+  margin: 40px auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+.gform_choice {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.gform_choice:hover {
+  background: #f3f4f6;
+}
+
+input {
+  margin-right: 12px;
+  margin-top: 20px;
+}
+
+.gform_box button {
+  margin-top: 24px;
+  padding: 10px 24px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gform_box button:hover {
+  background: #1558b0;
+}
+
+.submit_all {
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#score_result {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f1f3f438;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.timer_box{
+    color: rgb(10, 60, 238);
+    padding: 10px;
+    font-weight: bold;
+    margin: left 10px;;
+    font-size: 20px;
+}
+
+/* กล่องเลือกระดับ */
+.level_box{
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;}
+
+/* ข้อความ */
+.level_box h3{
+    margin: 0;
+    font-size: 18px;
+}
+
+/* select */
+#level{
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+/* hover */
+#level:hover{
+    border-color: #2563eb;
+}
+
+/* สีตามระดับ */
+#easy{
+    border-left: 6px solid #22c55e;
+}
+
+#medium{
+    border-left: 6px solid #facc15;
+}
+
+#hard{
+    border-left: 6px solid #ef4444;
+}
+
+#easy , #medium , #hard{
+    display: none;
+}

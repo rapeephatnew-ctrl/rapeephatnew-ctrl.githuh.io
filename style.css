@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background: #f2f2f2;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background: #e6e6e6;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+    box-sizing: border-box;
+
+    z-index: 1000;
+}
+
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+.logo span {
+    color: #555;
+}
+
+/* Layout */
+.container {
+    display: block;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 60px;          /* ต่ำกว่า header */
+    left: 0;
+    width: 230px;
+    height: calc(100vh - 60px);
+
+    background: #7f7f7f;
+    color: white;
+}
+
+
+.menu-item,
+.submenu div {
+    font-size: 16px;      /* ขนาดเท่ากันทั้งหมด */
+    font-weight: bold;    /* ตัวหนาเหมือนกัน */
+    padding : 15px;
+}
+
+
+.menu-item:hover {
+    background: #666;
+}
+
+.dropdown {
+    font-weight: bold;
+}
+
+/* Submenu */
+.submenu {
+    display: none;
+    background: #8c8c8c;
+}
+
+.submenu div {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.submenu div:hover {
+    background: #6f6f6f;
+}
+
+/* Show submenu */
+.submenu.show {
+    display: block;
+}
+
+
+.content_index{
+    margin-top: 60px;    /* เว้นที่ให้ header */
+    margin-left: 230px;  /* เว้นที่ให้ sidebar */
+    padding: 30px;
+}
+
+/* Content */
+.content {
+    margin-top: 60px;    /* เว้นที่ให้ header */
+    margin-left: 230px;  /* เว้นที่ให้ sidebar */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;   /* ให้เนื้อหาเรียงบนลงล่าง */
+    align-items: center;  
+}
+
+#box {
+    background: #8c8c8c;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: none;
+    position: relative;
+    border-radius: 12px;
+}
+
+
+.box-title {
+    background: #bfbfbf;
+    display: inline-block;
+    padding: 6px 18px;
+    margin-top: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    border-radius: 12px;
+}
+
+.none{
+    padding-top: 10px;
+}
+
+.text-explain{
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+
+img {
+    max-width: 40%;
+    height: auto;
+}
+
+p {
+    font-size: 22px;
+    font-weight: 200;
+    background: fixed;
+}
+
+h1 h2 h3 h4 h5 h6 {
+    font-size: 30px;
+    font-weight: bold;
+    background: fixed;
+}
+
+li {
+    font-size: 22px;
+    font-weight: 200;
+    background: fixed;
+}
+
+.main_button {
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgb(188, 187, 187);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* hover */
+.main_button:hover {
+    background: rgb(188, 187, 187);
+    transform: translateY(-3px);
+}
+
+/* ตอนกด */
+.main_button:active {
+    transform: scale(0.96);
+}
+
+/* คอนเทนดอกเบี้ยเชิงเดียว */
+.content_math {
+    width: 700px;
+    max-width: 100%;
+    margin-top: 20px;    /* เว้นที่ให้ header */
+    margin-left: 0;  /* เว้นที่ให้ sidebar */
+    padding: 25px;
+    background: rgb(194, 197, 201);
+    font-family: sans-serif;;
+    position: relative;
+    border-radius: 10px;
+}
+
+
+.content_math h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content_math label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+}
+
+.content_math input {
+    width: 98%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.content_math button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #6b7280;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.content_math button:hover {
+    background: #4b5563;
+}
+
+.result_box h2 {
+    text-align: center;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.calculator,
+.result_box {
+    flex: 1;
+    padding: 20px;
+    background: #ffffff;
+}
+
+.result_box{
+    max-width: 100%;
+    background: #ffffff;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.back_index {
+  margin: 15px auto 0;
+  padding: 10px 22px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  display: block;
+}
+
+.back_index:hover {
+  background: #4b5563;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal_content{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    width:300px;
+    animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+    from{transform:scale(0.8);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+

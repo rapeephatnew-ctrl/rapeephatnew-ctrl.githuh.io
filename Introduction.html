@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>MathQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="logo" >
+        Math<span>Quest</span>
+    </div>
+    <div class="home">
+        <h2>เกริ่นนำ</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-item" onclick="showContent('intro') , window.location.href='introduction.html'">
+            <div class="none">
+                เกริ่นนำ
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('interestMenu')">
+            ดอกเบี้ย <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="interestMenu">
+            <div onclick="showContent('simple') , window.location.href='Simple_Interest'">ดอกเบี้ยเชิงเดี่ยว</div>
+            <div onclick="showContent('compound') , window.location.href='Compound_Interest'">ดอกเบี้ยทบต้น</div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('problemMenu')">
+            โจทย์ปัญหา <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="problemMenu">
+            <div>โจทย์ตัวอย่าง</div>
+            <div>แบบฝึกหัด</div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content_index">
+        <p>
+            <strong>ปูพื้นฐาน: จากตัวเลขสู่ระบบ (ลำดับและอนุกรม)</strong><br>
+            ก่อนจะเริ่มคำนวณดอกเบี้ย เราควรเข้าใจก่อนว่า เงินที่เพิ่มขึ้นในแต่ละงวดมีรูปแบบเป็น 
+            <strong>ลำดับเลขคณิต (Arithmetic Sequence)</strong>
+        </p>
+
+        <p>
+        <strong>ลำดับ</strong> คือ ชุดของตัวเลขที่เรียงต่อกัน เช่น 5, 10, 15, 20, ...<br>
+        <strong>หัวใจสำคัญ</strong> คือการมี <strong>ผลต่างร่วม (d)</strong> ที่คงที่เสมอ  
+        เช่น ตัวอย่างข้างต้นเพิ่มขึ้นทีละ 5 (d = 5)
+        </p>
+
+        <p>
+        <strong>การประยุกต์</strong><br>
+        เมื่อเราเข้าใจระยะห่างของตัวเลขในลำดับ  
+        เราจะสามารถนำไปใช้คำนวณจำนวนเงินในอนาคตได้อย่างแม่นยำมากขึ้น
+        </p>
+
+        <hr>
+
+        <p>
+        <strong>การคำนวณดอกเบี้ยเชิงเดี่ยว (Simple Interest)</strong><br>
+        เมื่อเข้าสู่เรื่องดอกเบี้ย สูตรพื้นฐานที่ใช้คือ
+        </p>
+
+        <p>
+        <strong>I = P × r × t</strong>
+        </p>
+
+        <p>
+        โดยที่<br>
+        <strong>I (Interest)</strong> คือ จำนวนดอกเบี้ยที่ได้รับหรือที่ต้องจ่าย<br>
+        <strong>P (Principal)</strong> คือ เงินต้นที่เริ่มฝากหรือกู้<br>
+        <strong>r (Rate)</strong> คือ อัตราดอกเบี้ย (คิดเป็นเปอร์เซ็นต์ต่อปี)<br>
+        <strong>t (Time)</strong> คือ ระยะเวลา (ต้องแปลงเป็นหน่วย “ปี” เสมอ)
+        </p>
+
+        <hr>
+
+        <p>
+        <strong>จุดที่ต้องระวัง: กรณีระยะเวลาเป็น “วัน”</strong><br>
+        ในชีวิตจริง เราอาจไม่ได้ฝากหรือกู้เงินครบหนึ่งปี  
+        จึงมีวิธีคิดระยะเวลา (<strong>t</strong>) อยู่ 2 รูปแบบหลัก
+        </p>
+
+        <p>
+        <strong>1) ดอกเบี้ยธรรมดา (Ordinary Interest)</strong><br>
+        ถือว่า 1 ปีมี 360 วัน  
+        นิยมใช้ในทางธุรกิจ เพราะคำนวณง่าย
+        </p>
+
+        <p>
+        <strong>2) ดอกเบี้ยจริง (Exact Interest)</strong><br>
+        คิดตามจำนวนวันจริงในปฏิทิน  
+        คือ 1 ปีมี 365 วัน (หรือ 366 วันในปีอธิกสุรทิน)
+        </p>
+
+        <hr>
+
+        <p>
+        <strong>เทคนิคการนับวัน</strong><br>
+        – ไม่นับวันแรกที่เริ่มทำรายการ<br>
+        – นับวันสุดท้ายของระยะเวลา<br>
+        ตัวอย่าง: ฝากเงินตั้งแต่วันที่ 1 ถึงวันที่ 15  
+        จะนับระยะเวลาได้ <strong>14 วัน</strong>
+        </p>
+
+        <hr>
+
+        <p>
+        <strong>สรุปให้เห็นภาพ</strong><br>
+        การคำนวณดอกเบี้ยให้แม่นยำ ต้องรู้ครบทั้ง<br>
+        เงินต้น (P) + อัตราดอกเบี้ย (r) + ระยะเวลา (t)<br>
+        และที่สำคัญที่สุดคือต้องนับระยะเวลาให้ถูกต้อง  
+        ตามเกณฑ์ที่ตกลงกันว่าจะใช้ฐาน 360 วัน หรือ 365 วัน  
+        เพื่อให้ได้จำนวนดอกเบี้ยที่ไม่คลาดเคลื่อน
+        </p>
+
+        <button class="back_index" onclick="goIndex()">
+            กลับหน้าแรก
+        </button>
+
+</div>
+
+</body>
+
+<script>
+
+function toggleMenu(id) {
+    const menu = document.getElementById(id);
+    menu.classList.toggle("show");
+}
+
+function showContent(type) {
+    const title = document.getElementById("title");
+
+}
+
+
+function goIndex() {
+  window.location.href = "index.html";
+  document.querySelector(".back_index").style.display = "block";
+}
+
+</script>
+
+</html>
