@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>MathQuest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">
+        Math<span>Quest</span>
+    </div>
+
+    <div class="home">
+        <h2>Home</h2>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-item" onclick="showContent('intro') , window.location.href='Introduction.html'">
+            <div class="none">
+                เกริ่นนำ
+            </div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('interestMenu')">
+            ดอกเบี้ย <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="interestMenu">
+            <div onclick="showContent('simple') , window.location.href='Simple_Interest'">ดอกเบี้ยเชิงเดี่ยว</div>
+            <div onclick="showContent('compound') , window.location.href='Compound_Interest'">ดอกเบี้ยทบต้น</div>
+        </div>
+
+        <!-- Dropdown -->
+        <div class="menu-item dropdown" onclick="toggleMenu('problemMenu')">
+            โจทย์ปัญหา <span class="arrow">▼</span>
+        </div>
+        <div class="submenu" id="problemMenu">
+            <div>โจทย์ตัวอย่าง</div>
+            <div>แบบฝึกหัด</div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content_index">
+        
+        <div id="box">
+            <h2 class="box-title">ตะลุยโจทย์</h2>
+            <p class="text-explain">ทุกคนสามารถแก้โจทย์เพื่อปลุกไฟในตัวคุณ</p>
+            <button class="main_button" onclick="window.location.href='Quest_math'">กดเพื่อเริ่มเรียน</button>
+        </div>
+
+        <div id="box">
+            <h2 class="box-title">คณิตคิดเร็ว</h2>
+            <p class="text-explain">เร็ว แรง ทะลุทุกโจทย์ (ยังไม่เสร็จครับ)</p>
+            <button class="main_button" onclick="window.location.href='Quick_math.html'">กดเพื่อเริ่มเรียน</button>
+        </div>
+
+        <div id="box">
+            <h2 class="box-title">ภาษี</h2>
+            <p class="text-explain">ภาษีเป็นเรื่องที่ใกล้ตัวเรา</p>
+            <button class="main_button" onclick="window.location.href='Tax.html'">กดเพื่อเริ่มเรียน</button>
+        </div>
+
+        <div id="box">
+            <h2 class="box-title">โจทย์เข้ามหาลัย</h2>
+            <p class="text-explain">ยังไม่เสร็จครับ</p>
+            <button class="main_button" onclick="window.location.href='#'">กดเพื่อเริ่มเรียน</button>
+        </div>
+
+</div>
+
+</body>
+
+<script>
+
+function toggleMenu(id) {
+    const menu = document.getElementById(id);
+    menu.classList.toggle("show");
+}
+
+function showContent(type) {
+    const title = document.getElementById("title");
+
+}
+
+</script>
+
+</html>
